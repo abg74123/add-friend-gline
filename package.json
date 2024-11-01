@@ -1,0 +1,26 @@
+{
+  "name": "add-friend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "tsc && node dist/app.js",
+    "lint": "eslint . --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@line/bot-sdk": "^9.4.4",
+    "fs": "^0.0.1-security",
+    "nodemon": "^3.1.7",
+    "uuid": "^11.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.12.2"
+  }
+}
