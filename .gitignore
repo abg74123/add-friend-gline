@@ -1,7 +1,7 @@
 # compiled output
 /dist
 /node_modules
-/assets/customer.csv
+*.csv
 
 # dotenv environment variable files
 .env
