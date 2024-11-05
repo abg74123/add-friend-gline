@@ -107,9 +107,9 @@ export class FriendService {
         const customer = [
           uuid,
           id,
-          profile.pictureUrl || "",
+          profile && profile.pictureUrl ? profile.pictureUrl : "",
           "",
-          '"' + profile.displayName + '"' || "",
+          profile && profile.displayName ? '"' + profile.displayName + '"' : "",
           "",
           "",
           "",
