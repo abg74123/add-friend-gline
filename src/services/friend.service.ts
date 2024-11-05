@@ -17,22 +17,6 @@ export class FriendService {
 
   async addFriend() {
 
-    await fs.unlink("assets/reports/customer_success.csv", (err) => {
-      if (err) {
-        console.error('Error deleting file:', err);
-      } else {
-        console.log('File deleted successfully!');
-      }
-    });
-
-   await fs.unlink("assets/reports/customer_fail.csv", (err) => {
-      if (err) {
-        console.error('Error deleting file:', err);
-      } else {
-        console.log('File deleted successfully!');
-      }
-    });
-
     // let end = 0;
     let countFail = 0;
 
@@ -67,11 +51,11 @@ export class FriendService {
       "error",
       "date"
     ]
-
+    const dateNow = new Date()
     // * Create File Header
     // Convert data to CSV and specify the file path
     const csvContent_success = fileService.convertToCSV(header_success);
-    const filePath_success = "assets/reports/customer_success.csv";
+    const filePath_success = `assets/reports/customer_${dateNow.getTime()}_success.csv`;
 
     // Write the CSV to the specified file
     fileService.writeCSVToFile(csvContent_success, filePath_success);
@@ -80,7 +64,7 @@ export class FriendService {
     // * Create File Header
     // Convert data to CSV and specify the file path
     const csvContent_fail = fileService.convertToCSV(header_fail);
-    const filePath_fail = "assets/reports/customer_fail.csv";
+    const filePath_fail = `assets/reports/customer_${dateNow.getTime()}_fail.csv`;
 
     // Write the CSV to the specified file
     fileService.writeCSVToFile(csvContent_fail, filePath_fail);
@@ -130,7 +114,7 @@ export class FriendService {
 
         // Convert data to CSV and specify the file path
         const csvContent = fileService.convertToCSV(customer);
-        const filePath = "assets/reports/customer_success.csv";
+        const filePath = `assets/reports/customer_${dateNow.getTime()}_success.csv`;
 
         // Write the CSV to the specified file
         fileService.writeCSVToFile(csvContent, filePath);
@@ -141,7 +125,7 @@ export class FriendService {
 
         // Convert data to CSV and specify the file path
         const csvContent = fileService.convertToCSV(data);
-        const filePath = "assets/reports/customer_fail.csv";
+        const filePath = `assets/reports/customer_${dateNow.getTime()}_fail.csv`;
 
         // Write the CSV to the specified file
         fileService.writeCSVToFile(csvContent, filePath);
